@@ -1,18 +1,13 @@
 require 'pry'
-require 'cat.rb'
 class Owner
-  attr_accessor :pets, :cats, :fishes, :dogs
-  attr_reader :name, :species
-  @@owner = []
+  attr_reader :name, :species, :fishes, :cats, :dogs
+  @@all = []
   @@pets = {:fishes => [], :cats => [], :dogs=> []}
-
-  
 
   def initialize(name, species = "human")
     @name = name
     @species = species  
-    @@owner << self
-    @@pets << self
+    @@all << self
   end
 
   def say_species
@@ -20,24 +15,19 @@ class Owner
   end
 
   def self.all
-    @@owner
+    @@all
   end
 
-
-  def buy_cat(name, owner)
+  def buy_cat(name)
     name = Cat.new(name)
-    name.owner = owner
-    @pets[:cats] << name 
-  end 
-	
+    @@pets[:cats] << name
+  end
 
   def self.count
-    @@owner.length
+    @@all.length
   end
 
   def self.reset_all
-    @@owner.clear
+    @@all.clear
   end
 end
-
-binding.pry

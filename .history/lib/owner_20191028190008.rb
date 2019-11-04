@@ -1,0 +1,19 @@
+class Owner
+  attr_reader :name, :species
+  @@all = []
+  count = 0
+  def initialize(name, species = "human")
+    @name = name
+    count += 1
+    @species = species
+    @@all << self
+  end
+
+  def say_species
+    return "I am a #{@species}."
+  end
+
+  def self.all
+    @@all
+  end
+end
