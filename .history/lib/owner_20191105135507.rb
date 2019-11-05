@@ -1,7 +1,6 @@
 require 'pry'
 require 'cat.rb'
 class Owner
-  attr_accessor
   attr_reader :name, :species
   @@all = []
   def initialize(name, species = "human")
@@ -55,9 +54,14 @@ class Owner
   end
 
   def sell_pets
-    self.dogs.each {|dog| dog.mood = "nervous" ; dog.owner = nil}
-    self.cats.each {|cat| cat.mood = "nervous" ; cat.owner = nil}
+    self.species.each do |species, pets|
+      pets.each do |pet|
+        pet.mood = "nervous"
+      end
+      pets.clear
+    end
   end
+
   def list_pets
     return "I have #{self.dogs.count} dog(s), and #{self.cats.count} cat(s)."
   end
