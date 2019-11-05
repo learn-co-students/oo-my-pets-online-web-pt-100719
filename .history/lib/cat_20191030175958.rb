@@ -1,16 +1,18 @@
-class Dog
+require 'pry'
+class Cat
   attr_accessor :owner, :mood
   attr_reader :name
-
-  @@dogs = []
+  @@all = []
   def initialize(name, owner)
     @name = name
     @owner = owner
     @mood = "nervous"
-    @@dogs << self
+    @@all << self
   end
 
   def self.all
-    @@dogs
+    @@all
   end
+  binding.pry
+
 end
