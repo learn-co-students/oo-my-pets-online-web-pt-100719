@@ -1,3 +1,4 @@
+require 'pry'
 class Owner
   
   attr_reader :name, :species
@@ -43,11 +44,27 @@ class Owner
     
     def walk_dogs
       Dog.all.each{|dogs| dogs.mood = "happy"}
+    end
     
+    def feed_cats
+      Cat.all.each{|cats| cats.mood = "happy"}
+    end
     
+    def feed_dogs
+      Dog.all.each{|dogs| dogs.mood = "happy"}
+    end
     
-    
-    
+    def sell_pets
+      pets = self.dogs + self.cats
+      pets.each do |p| 
+        p.mood = "nervous"
+        p.owner = nil
+      end
+    end
+      
+      def list_pets
+        "I have #{self.dogs.count} dog(s), and #{self.cats.count} cat(s)."
+    end
     
     
     
