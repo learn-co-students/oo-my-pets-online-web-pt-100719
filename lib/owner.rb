@@ -1,33 +1,35 @@
 class Owner
 
-  attr_reader :name, :species
-  @@all = []
+  attr_reader :name, :species # Owner cannot change its name or species
+  @@owner = []
 
   def initialize(name, species = "human")
     @name = name
     @species = species
-    @pets = {cats: [], dogs: []}
-    save
+    @@owner << self # Stores new instances of the Owner class here
   end
 
-  def save
-    @@all << self
-  end
-
+  # Says what species the instance of owner is
   def say_species
-    "I am a #{species}."
+    "I am a #{species}." #=> "I am a human."
   end
 
+  # Return all instances of the Owner class
   def self.all
-    @@all
+    @@owner
   end
 
+  # Counts and returns the number of Owner instances
   def self.count
-    @@all.count
+    @@owner.length
   end
 
+  # Clears all instances of the Owner class
   def self.reset_all
-    @@all.clear
+    @@owner.clear
+  end
+
+  def cats
   end
 
 end

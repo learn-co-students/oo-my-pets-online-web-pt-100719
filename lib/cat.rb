@@ -1,22 +1,19 @@
-class Cat
+ class Cat
 
-  attr_reader :name # Name does not change
-  attr_accessor :owner, :mood
-  @@all = []
+  attr_reader :name # Cat cannot change its name
+  attr_accessor :mood, :owner
+  @@cats = [] # Collects all instances of the Cat class here
 
   def initialize(name, owner, mood = "nervous")
-    @mood = mood
     @name = name
     @owner = owner
-    save
+    @mood = mood
+    @@cats << self
   end
 
-  def save
-    @@all << self
-  end
-
+  # Returns all the instances of the Cat class
   def self.all
-    @@all
+    @@cats
   end
 
-end
+ end

@@ -1,22 +1,19 @@
 class Dog
 
-  attr_reader :name
+  attr_reader :name # Dog cannot change its name
   attr_accessor :owner, :mood
-  @@all = []
+  @@dogs = [] # Store all instances of the Dog class
 
   def initialize(name, owner, mood = "nervous")
     @name = name
     @owner = owner
     @mood = mood
-    save
+    @@dogs << self # Saves all instances of the Dog class
   end
 
-  def save
-    @@all << self
-  end
-
+  # Returns all instances of the Dog class
   def self.all
-    @@all
+    @@dogs
   end
 
 end
