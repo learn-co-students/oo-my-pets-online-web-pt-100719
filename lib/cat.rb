@@ -8,6 +8,10 @@
     @name = name
     @owner = owner
     @mood = mood
+    save
+  end
+
+  def save
     @@cats << self
   end
 
