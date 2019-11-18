@@ -43,8 +43,9 @@ class Owner
     end
   end
 
+  # Combines our cats and dogs methods into one
   def pets
-    self.cats + self.dogs
+    self.cats + self.dogs # Adds the cat and dog arrays into one array
   end
 
   # Adds a new cat to the instance of Owner
