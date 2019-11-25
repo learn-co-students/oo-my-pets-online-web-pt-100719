@@ -1,25 +1,28 @@
-require 'values'
+
 class Cat
-  attr_accessor :name
-  attr_reader :owner
+  attr_accessor 
+  attr_reader :owner, :name, :mood
   
   @@all =[]
   
-  def initialize(name,owner)
+  def initialize(name,owner, mood = "nervous")
     @name = name
-    
+    @name.freeze
     @owner = owner
+    @mood = mood
+    @@all << self
   end
   
   def owner=(owner)
     @owner = owner
   end
   
-  def name(name)
-    @name
+  def mood=(mood)
+    @mood = mood
   end
   
-  
-  
+  def self.all
+    @@all 
+  end
   
 end
